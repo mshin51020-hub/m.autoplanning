@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useEffect } from "react";
 
-const NEW_ICON = "/manus-storage/icon-fist-v4-transparent_856cda0b.png";
+const NEW_ICON = "/icon.svg";
 
 export default function About() {
   useEffect(() => {

@@ -678,7 +678,7 @@ export default function ProfileForm() {
                 {isGenerating ? (
                   <Loader2 className="w-5 h-5 animate-spin mr-2" />
                 ) : (
-                  <img src="/manus-storage/icon-fist-v4-transparent_856cda0b.png" alt="" aria-hidden="true" role="presentation" className="w-5 h-5 object-contain mr-2" />
+                  <img src="/icon.svg" alt="" aria-hidden="true" role="presentation" className="w-5 h-5 object-contain mr-2" />
                 )}
                 トレーニングを作成する
               </Button>

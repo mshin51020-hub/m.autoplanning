@@ -65,7 +65,7 @@ export default function AdminSetupPassword() {
     setupMutation.mutate({ email, password, confirmPassword });
   };
 
-  const V4_ICON_URL = "/manus-storage/icon-fist-v4-transparent_856cda0b.png";
+  const V4_ICON_URL = "/icon.svg";
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4 relative overflow-hidden">

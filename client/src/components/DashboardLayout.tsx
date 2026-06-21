@@ -170,7 +170,7 @@ function DashboardLayoutContent({
               {!isCollapsed && (
                 <a href="/" className="flex items-center gap-2 min-w-0 hover:opacity-80 transition-opacity">
                   <img
-                    src="/manus-storage/icon-fist-v4-transparent_856cda0b.png"
+                    src="/icon.svg"
                     alt=""
                     aria-hidden="true"
                     role="presentation"
@@ -347,7 +347,7 @@ function DashboardLayoutContent({
             </div>
             <div className="flex items-center gap-2 pr-2">
               <img
-                src="/manus-storage/icon-fist-v4-transparent_856cda0b.png"
+                src="/icon.svg"
                 alt=""
                 aria-hidden="true"
                 role="presentation"

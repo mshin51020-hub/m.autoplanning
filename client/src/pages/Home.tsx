@@ -7,7 +7,7 @@ import { ArrowRight, History, Zap, Shield, BarChart3, ChevronRight, Clock, Dumbb
 import { AdBanner } from "@/components/AdBanner";
 import { trpc } from "@/lib/trpc";
 
-const NEW_ICON = "/manus-storage/icon-fist-v4-transparent_856cda0b.png";
+const NEW_ICON = "/icon.svg";
 
 export default function Home() {
   const { user, isAuthenticated, loading } = useAuth();
