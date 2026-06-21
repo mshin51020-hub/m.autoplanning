@@ -1,7 +1,11 @@
 import "dotenv/config";
 import { drizzle } from "drizzle-orm/mysql2";
 import { migrate } from "drizzle-orm/mysql2/migrator";
+import { eq } from "drizzle-orm";
 import mysql from "mysql2/promise";
+import { users } from "../drizzle/schema";
+
+const ADMIN_EMAIL = "mshin5.1020@gmail.com";
 
 async function runMigrations() {
   const url = process.env.DATABASE_URL;
@@ -11,9 +15,17 @@ async function runMigrations() {
   }
   const connection = await mysql.createConnection(url);
   const db = drizzle(connection);
+
   await migrate(db, { migrationsFolder: "./drizzle" });
-  await connection.end();
   console.log("[migrate] All migrations applied");
+
+  const existing = await db.select().from(users).where(eq(users.email, ADMIN_EMAIL)).limit(1);
+  if (existing.length === 0) {
+    await db.insert(users).values({ email: ADMIN_EMAIL, role: "admin" });
+    console.log("[migrate] Admin user created:", ADMIN_EMAIL);
+  }
+
+  await connection.end();
 }
 
 runMigrations().catch((err) => {
