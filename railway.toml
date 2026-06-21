@@ -4,3 +4,5 @@ builder = "nixpacks"
 [deploy]
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 3
+healthcheckPath = "/api/trpc/system.health?batch=1&input=%7B%220%22%3A%7B%22json%22%3A%7B%22timestamp%22%3A0%7D%7D%7D"
+healthcheckTimeout = 300

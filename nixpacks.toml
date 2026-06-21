@@ -1,3 +1,6 @@
+[variables]
+VITE_APP_ID = "muscle-plan"
+
 [phases.install]
 cmds = ["npm install --include=dev --legacy-peer-deps"]
 
@@ -7,6 +10,3 @@ cmds = [
   "./node_modules/.bin/esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --alias:vite=./server/shims/vite.ts --alias:@tailwindcss/vite=./server/shims/tailwindcss-vite.ts --alias:@vitejs/plugin-react=./server/shims/react-plugin.ts --outfile=dist/server.js",
   "./node_modules/.bin/esbuild server/migrate.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/migrate.js"
 ]
-
-[start]
-cmd = "node dist/migrate.js; NODE_ENV=production node dist/server.js"

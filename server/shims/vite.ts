@@ -1,5 +1,6 @@
 // Production shim: vite is not needed at runtime (only in dev mode)
 export const createServer = async () => {
-  throw new Error("Vite dev server is not available in production");
+  console.error("[shim] Vite createServer called in production — ensure NODE_ENV=production in Railway Variables");
+  process.exit(1);
 };
 export const defineConfig = (config: unknown) => config;

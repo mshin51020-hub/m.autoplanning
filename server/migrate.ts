@@ -35,5 +35,6 @@ async function runMigrations() {
 }
 
 runMigrations().catch((err) => {
-  console.error("[migrate] Migration failed (server will still start):", err);
+  console.error("[migrate] Migration failed:", err);
+  process.exit(1);
 });

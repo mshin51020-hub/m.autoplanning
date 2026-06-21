@@ -12,6 +12,9 @@ COPY . .
 RUN ./node_modules/.bin/vite build
 RUN ./node_modules/.bin/esbuild server/_core/index.ts \
     --platform=node --packages=external --bundle --format=esm \
+    --alias:vite=./server/shims/vite.ts \
+    --alias:@tailwindcss/vite=./server/shims/tailwindcss-vite.ts \
+    --alias:@vitejs/plugin-react=./server/shims/react-plugin.ts \
     --outfile=dist/server.js
 RUN ./node_modules/.bin/esbuild server/migrate.ts \
     --platform=node --packages=external --bundle --format=esm \
@@ -21,4 +24,4 @@ RUN ls dist/server.js dist/migrate.js dist/public/index.html && echo "BUILD OK"
 
 EXPOSE 3000
 
-CMD ["sh", "-c", "node dist/migrate.js; NODE_ENV=production node dist/server.js"]
+CMD ["sh", "-c", "node dist/migrate.js && NODE_ENV=production node dist/server.js"]
