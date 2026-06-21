@@ -1,0 +1,1 @@
+ALTER TABLE `exercise_weights` MODIFY COLUMN `difficulty` varchar(64) NOT NULL DEFAULT 'beginner';

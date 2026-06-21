@@ -1,0 +1,195 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1779070249324,
+      "tag": "0000_neat_sunset_bain",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1779070402115,
+      "tag": "0001_slim_mongu",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1779072207171,
+      "tag": "0002_natural_captain_marvel",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1779089150502,
+      "tag": "0003_reflective_george_stacy",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1779194586717,
+      "tag": "0004_stormy_chat",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1779199047784,
+      "tag": "0005_parched_manta",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1779202275104,
+      "tag": "0006_whole_hardball",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1779668420977,
+      "tag": "0007_old_blizzard",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1779668475083,
+      "tag": "0008_daffy_silver_samurai",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "5",
+      "when": 1779669957459,
+      "tag": "0009_naive_celestials",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "5",
+      "when": 1779689669073,
+      "tag": "0010_sweet_talkback",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "5",
+      "when": 1779697632814,
+      "tag": "0011_fixed_surge",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "5",
+      "when": 1781149215848,
+      "tag": "0012_nice_silver_sable",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "5",
+      "when": 1781165022626,
+      "tag": "0013_nosy_golden_guardian",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "5",
+      "when": 1781218105947,
+      "tag": "0014_fuzzy_odin",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "5",
+      "when": 1781256759909,
+      "tag": "0015_far_krista_starr",
+      "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "5",
+      "when": 1781414264684,
+      "tag": "0016_cooing_baron_zemo",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "5",
+      "when": 1750000000000,
+      "tag": "0017_workout_log_date",
+      "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "5",
+      "when": 1750100000000,
+      "tag": "0018_profile_training_days",
+      "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "5",
+      "when": 1750200000000,
+      "tag": "0019_add_exercises",
+      "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "5",
+      "when": 1750300000000,
+      "tag": "0020_users_email_unique",
+      "breakpoints": true
+    },
+    {
+      "idx": 21,
+      "version": "5",
+      "when": 1750300100000,
+      "tag": "0021_workout_logs_unique",
+      "breakpoints": true
+    },
+    {
+      "idx": 22,
+      "version": "5",
+      "when": 1750400000000,
+      "tag": "0022_streak_badges",
+      "breakpoints": true
+    },
+    {
+      "idx": 23,
+      "version": "5",
+      "when": 1750400100000,
+      "tag": "0023_body_measurements",
+      "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "5",
+      "when": 1750500000000,
+      "tag": "0024_plan_type",
+      "breakpoints": true
+    },
+    {
+      "idx": 25,
+      "version": "5",
+      "when": 1750600000000,
+      "tag": "0025_stripe_cols",
+      "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "5",
+      "when": 1750700000000,
+      "tag": "0026_push_subscriptions",
+      "breakpoints": true
+    }
+  ]
+}

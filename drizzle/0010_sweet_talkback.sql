@@ -1,0 +1,1 @@
+ALTER TABLE `exercise_weights` ADD `equipment_category` varchar(32) DEFAULT 'other';

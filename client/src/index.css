@@ -1,0 +1,332 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+/* Google Fonts: Orbitron (近未来見出し) + Inter (本文) */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap");
+
+@theme inline {
+  /* ── ダークネイビー × オレンジ × シアン ── */
+  --color-background:          oklch(0.10 0.025 240);   /* #0d1b2a */
+  --color-foreground:          oklch(0.93 0.005 240);   /* #e8edf2 */
+  --color-card:                oklch(0.14 0.030 240);   /* #111f2e */
+  --color-card-foreground:     oklch(0.93 0.005 240);
+  --color-popover:             oklch(0.14 0.030 240);
+  --color-popover-foreground:  oklch(0.93 0.005 240);
+
+  /* primary = オレンジ (#FF6B00) */
+  --color-primary:             oklch(0.68 0.20 45);
+  --color-primary-foreground:  oklch(0.10 0.025 240);
+
+  /* secondary = ダークネイビー中間 */
+  --color-secondary:           oklch(0.18 0.030 240);
+  --color-secondary-foreground:oklch(0.80 0.010 240);
+
+  --color-muted:               oklch(0.20 0.028 240);
+  --color-muted-foreground:    oklch(0.63 0.015 240);
+
+  /* accent = シアン (#00d4ff) */
+  --color-accent:              oklch(0.78 0.15 200);
+  --color-accent-foreground:   oklch(0.10 0.025 240);
+
+  --color-destructive:         oklch(0.55 0.22 25);
+  --color-destructive-foreground: oklch(0.95 0 0);
+
+  --color-border:              oklch(0.27 0.038 240);
+  --color-input:               oklch(0.16 0.030 240);
+  --color-ring:                oklch(0.68 0.20 45);
+
+  /* chart */
+  --color-chart-1:             oklch(0.68 0.20 45);
+  --color-chart-2:             oklch(0.78 0.15 200);
+  --color-chart-3:             oklch(0.60 0.18 280);
+  --color-chart-4:             oklch(0.72 0.16 150);
+  --color-chart-5:             oklch(0.55 0.22 25);
+
+  /* radius: 近未来的な角丸 */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+
+  /* sidebar */
+  --color-sidebar:                oklch(0.11 0.028 240);
+  --color-sidebar-foreground:     oklch(0.93 0.005 240);
+  --color-sidebar-primary:        oklch(0.68 0.20 45);
+  --color-sidebar-primary-foreground: oklch(0.10 0.025 240);
+  --color-sidebar-accent:         oklch(0.18 0.030 240);
+  --color-sidebar-accent-foreground: oklch(0.93 0.005 240);
+  --color-sidebar-border:         oklch(0.22 0.035 240);
+  --color-sidebar-ring:           oklch(0.68 0.20 45);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* ── 近未来タイポグラフィ ── */
+.heading-futuristic {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.label-futuristic {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 500;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+/* 後方互換 */
+.heading-brutal {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.subtext-brutal {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+}
+
+/* ── 六角形 SVG 背景 ── */
+.hex-bg {
+  position: relative;
+  overflow: hidden;
+}
+.hex-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='92' viewBox='0 0 80 92'%3E%3Cpolygon points='40,2 78,22 78,62 40,82 2,62 2,22' fill='none' stroke='%23162840' stroke-width='0.8'/%3E%3C/svg%3E");
+  background-size: 80px 92px;
+  opacity: 0.6;
+}
+.hex-bg::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    linear-gradient(180deg, oklch(0.10 0.025 240 / 0) 0%, oklch(0.10 0.025 240 / 0.6) 100%);
+}
+.hex-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── グロー効果 ── */
+.glow-orange {
+  box-shadow: 0 0 12px oklch(0.68 0.20 45 / 0.3), 0 0 2px oklch(0.68 0.20 45 / 0.5);
+}
+.glow-cyan {
+  box-shadow: 0 0 12px oklch(0.78 0.15 200 / 0.3), 0 0 2px oklch(0.78 0.15 200 / 0.5);
+}
+.glow-orange-text {
+  text-shadow: 0 0 8px oklch(0.68 0.20 45 / 0.6);
+}
+.glow-cyan-text {
+  text-shadow: 0 0 8px oklch(0.78 0.15 200 / 0.6);
+}
+
+/* ── カード: 近未来ボーダー ── */
+.card-futuristic {
+  border: 1px solid oklch(0.68 0.20 45 / 0.25);
+  background: oklch(0.13 0.030 240 / 0.85);
+  backdrop-filter: blur(8px);
+  position: relative;
+}
+.card-futuristic::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, oklch(0.68 0.20 45 / 0.6), transparent);
+}
+
+/* ── ブロックレイヤー（後方互換） ── */
+.block-layer {
+  position: relative;
+}
+.block-layer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: oklch(0.18 0.030 240);
+  transform: translate(3px, 3px);
+  z-index: -1;
+}
+
+/* ── アニメーション ── */
+.transition-snappy {
+  transition: all 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.btn-press:active {
+  transform: scale(0.97);
+}
+
+/* ── スキャンライン装飾 ── */
+.scanline {
+  position: relative;
+  overflow: hidden;
+}
+.scanline::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    oklch(0.10 0.025 240 / 0.05) 2px,
+    oklch(0.10 0.025 240 / 0.05) 4px
+  );
+  pointer-events: none;
+}
+
+/* ── スクロールリビール ── */
+/* JSで .revealed クラスを付与するまでは非表示 */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.55s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* スタガー遅延 */
+.reveal-delay-1 { transition-delay: 80ms; }
+.reveal-delay-2 { transition-delay: 160ms; }
+.reveal-delay-3 { transition-delay: 240ms; }
+.reveal-delay-4 { transition-delay: 320ms; }
+/* reduced-motion: 静止状態を保証 */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── Coming Soon バッジ ── */
+.badge-coming-soon {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: oklch(0.78 0.15 200 / 0.7);
+  border: 1px solid oklch(0.78 0.15 200 / 0.3);
+  padding: 2px 5px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+/* ── フローティングアニメーション ── */
+@media (prefers-reduced-motion: no-preference) {
+  /* フェードアップ（ヒーロースタガー用） */
+  @keyframes fade-up-in {
+    0%   { opacity: 0; transform: translateY(24px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up {
+    animation: fade-up-in 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+  .delay-0   { animation-delay: 0ms; }
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+  .delay-700 { animation-delay: 700ms; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(-2deg); }
+    33%       { transform: translateY(-12px) rotate(0deg); }
+    66%       { transform: translateY(-6px) rotate(2deg); }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50%       { opacity: 0.7; transform: scale(1.08); }
+  }
+  @keyframes scan-line-move {
+    0%   { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+  .animate-float {
+    animation: float 4s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  }
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+}
+/* reduced-motion 時は静止 */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float, .animate-pulse-glow, .animate-fade-up { animation: none; }
+  /* 静止時は表示を保証 */
+  .animate-fade-up { opacity: 1; transform: none; }
+}
+
+/* ── 機能カード ホバーグロー ── */
+.card-hover-orange {
+  transition: border-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow  200ms cubic-bezier(0.23, 1, 0.32, 1),
+              background  200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.card-hover-orange:hover {
+  border-color: oklch(0.68 0.20 45 / 0.55);
+  box-shadow: 0 0 20px oklch(0.68 0.20 45 / 0.18),
+              0 0 4px  oklch(0.68 0.20 45 / 0.35),
+              inset 0 0 20px oklch(0.68 0.20 45 / 0.04);
+  background: oklch(0.68 0.20 45 / 0.06);
+}
+.card-hover-cyan {
+  transition: border-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow  200ms cubic-bezier(0.23, 1, 0.32, 1),
+              background  200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.card-hover-cyan:hover {
+  border-color: oklch(0.78 0.15 200 / 0.55);
+  box-shadow: 0 0 20px oklch(0.78 0.15 200 / 0.18),
+              0 0 4px  oklch(0.78 0.15 200 / 0.35),
+              inset 0 0 20px oklch(0.78 0.15 200 / 0.04);
+  background: oklch(0.78 0.15 200 / 0.06);
+}
+
+/* ── アクティブナビ ── */
+.nav-active-indicator {
+  position: relative;
+}
+.nav-active-indicator::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 20%; bottom: 20%;
+  width: 2px;
+  background: oklch(0.68 0.20 45);
+  box-shadow: 0 0 6px oklch(0.68 0.20 45 / 0.8);
+  border-radius: 1px;
+}

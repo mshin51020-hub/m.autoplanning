@@ -1,0 +1,1 @@
+ALTER TABLE `exercise_weights` MODIFY COLUMN `difficulty` json NOT NULL DEFAULT ('["beginner"]');

@@ -1,0 +1,1 @@
+ALTER TABLE `generated_menus` ADD `planName` varchar(255);

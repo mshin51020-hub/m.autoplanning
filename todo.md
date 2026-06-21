@@ -1,0 +1,274 @@
+# Project TODO
+
+- [x] データベーススキーマ設計（profiles + generated_menus統合テーブル）
+- [x] マイグレーション実行
+- [x] ルールベースのトレーニングメニュー生成エンジン実装
+- [x] 短期（1週間）プラン生成ロジック
+- [x] 中期（1ヶ月）プラン生成ロジック
+- [x] 長期（3〜12ヶ月）プラン生成ロジック
+- [x] tRPCルーター実装（プロフィール取得・保存API）
+- [x] tRPCルーター実装（メニュー生成API）
+- [x] tRPCルーター実装（プラン生成API）
+- [x] tRPCルーター実装（履歴取得API）
+- [x] グローバルスタイル設定（モダンインダストリアル・モノクロ・ブルータリスト）
+- [x] ランディングページ（Home）実装
+- [x] 初期情報入力フォーム画面実装
+- [x] メニュー表示画面実装
+- [x] プラン表示画面実装
+- [x] 生成履歴一覧画面実装
+- [x] モバイルアプリ誘導バナー・CTA設置
+- [x] 全テキスト日本語表示の確認
+- [x] Vitestによるテスト作成
+- [x] 「運動経験」→「トレーニング歴」にラベル変更
+- [x] トレーニング歴の選択肢に「全くなし」を追加
+- [x] 「特に鍛えたい部位」の質問項目を追加
+- [x] 分割法（スプリット）ベースのメニュー生成に変更
+- [x] ユーザー選択部位に基づく日ごとの部位分割ロジック実装
+- [x] 「週間メニュー生成」と「トレーニングプラン生成」の2ボタンを1つのフローに統合
+- [x] UIフローの簡素化（情報入力→プラン生成の1フロー）
+- [x] 分割法をPPL等の高度な分割から「全身法」と「部位分割法」のみに簡素化
+- [x] すべてのページで「トレーニングを作成する」表記に統一
+- [x] アプリ名を「M. AutoPlanning（エムドットオートプランニング）」に変更（全ページ）
+- [x] ダンベルを持ち上げる腕のアイコン画像を黒白基調で生成
+- [x] アイコンをアプリのヘッダー・ファビコンに適用
+- [x] 黒背景版アイコンをファビコンに、白背景版アイコンをヘッダーに場面別適用
+- [x] 反転アイコン（黒背景・白線画）をアップロードしてアプリに適用
+- [x] ランディングページのキャッチコピーを「あなたに最速でトレーニングメニューを作成」に変更
+- [x] トレーニング生成のたびにボリュームが増加するバグを修正
+- [x] 1日のトレーニング時間の入力タブを追加
+- [x] 休憩時間の表記を削除（セット数・レップ数は維持）
+- [x] 選択していない部位のトレーニングが追加されるバグを修正する
+- [x] exercise_weightsテーブルをDBに追加し、種目ごとの基礎重量を管理する
+- [x] adminロール限定のCRUDプロシージャをrouters.tsに追加する
+- [x] 管理者ページUI（AdminExerciseWeights.tsx）を実装する
+- [x] App.tsxに管理者ルートを追加し、DashboardLayoutに管理者メニューを追加する
+- [x] 全ページにDashboardLayoutのサイドバーを適用する（ログイン後はすべてのページでサイドバーが表示される）
+- [x] 管理者メニューをオーナー（role=admin）のみに限定する
+- [x] exercise_weightsテーブルに男性用係数カラム（male_beginner_multiplier等）を追加する
+- [x] global_settingsテーブルを作成し、性別別のデフォルト係数を一括管理する
+- [x] 管理者ページに性別別係数の一括設定UIを追加する
+- [x] training-engine.tsに体重補正・性別別係数ロジックを実装し、推奨重量をメニューに表示する
+- [x] exercisesテーブルを新規作成し、種目名・部位・難易度・設備・自重フラグ等を管理する
+- [x] server/db.ts・server/routers.tsにexercises用CRUDプロシージャを追加する
+- [x] 管理者ページUIを全面書き換え（種目自由入力・部位選択・重量・係数一括管理）
+- [x] training-engine.tsをDBの種目データを参照するよう変更する
+- [x] デフォルト45種目をexercise_weightsテーブルに一括登録する（管理者ページから確認・編集可能）
+- [x] 種目の難易度設定を単一選択から複数選択式（初心者・中級者・上級者のチェックボックス）に変更する
+- [x] トレーニング歴別係数に「完全初心者（none）」を追加する（DB・エンジン・管理者UI・テスト）
+- [x] 推奨重量を器具別（ダンベル・バーベル・マシン）の実際に使用可能な重量に丸め補正する機能を実装する
+- [x] 種目数を1種目13分基準でトレーニング時間から逆算して適正に設定する（60分→最大4種目、全身の日の種目数過多・時間不足を修正）
+- [x] 完全初心者（none）の種目数上限を通常より少なく設定する（60分で最大3種目、時間設定なしでも上限厀3種目）
+- [x] 管理者の種目追加・編集画面に器具種別（ダンベル・バーベル・マシン・その他）の選択UIを追加する（自重種目は変更不要）
+- [x] 全身の日の種目数をMAX6種目に制限する（時間設定の有無にかかわらず）
+- [x] 複数部位が同じ日に割り当てられた場合（例：胸＋上腕三頭筋）、各部位から均等に種目が選ばれるよう配分ロジックを修正する
+- [x] トレーニング強度選択UI（低強度/標準/高強度）をProfileFormに追加する
+- [x] training-engine.tsのUserProfile型にintensityLevel（low/normal/high）を追加する
+- [x] getSetsAndReps関数を強度レベルに応じてセット数・レップ数・休憩時間を調整するよう修正する
+- [x] routers.tsのprofileInputSchemaにintensityLevelを追加する
+- [x] 強度選択に関するテストを追加する
+- [x] applyRepAdjustment関数を修正：低強度は上限15回、高強度は8-12回の範囲にクランプ
+- [x] PlanResult.tsxのフェーズ表示を最適化：1週間プランは「メインフェーズ」表記を削除し「週間トレーニングメニュー」に変更、フェーズ名・焦点・進行ルールは複数フェーズ時のみ表示
+- [x] 強度選択がプランに正しく反映されるよう修正（getIntensityLevelをprofile.intensityLevelに変更）
+- [x] PlanResult.tsxのintensityBadgeをlow/normal/high値に対応
+- [x] フェーズの焦点・進行ルールをPlanResult.tsxから削除（web版は1週間のみ）
+- [x] ProfileForm.tsxの目標選択を筋肥大のみ選択可能にし、他はAPPバッジ付きで表示
+- [x] ProfileForm.tsxの期間選択を1週間のみ選択可能にし、他はAPPバッジ付きで表示
+- [x] usersテーブルにdisclaimerAgreedAtカラムを追加（マイグレーション適用済み）
+- [x] routers.tsにauth.disclaimerStatus・auth.agreeDisclaimerプロシージャを追加
+- [x] DisclaimerModal.tsxコンポーネントを作成（全4項目チェック必須・初回のみ表示）
+- [x] ProfileForm.tsxにDisclaimerModalを組み込み（未同意時は生成前にモーダル表示）
+- [x] PlanResult.tsxに折りたたみ式免責バナーを常時表示
+- [x] DisclaimerModal.tsxを一括同意ボタン方式に変更（個別チェックボックス廃止）
+- [x] 免責事項を7項目に拡充（医師相談推奨・重量調整・認証情報管理を追加）
+- [x] サーバー側：admin.getUsers・admin.getUserDetail プロシージャを追加
+- [x] フロントエンド：AdminUsers.tsxページを作成（ユーザー一覧・プロフィール・生成履歴）
+- [x] App.tsxに /admin/users ルートを追加
+- [x] DashboardLayoutのサイドバーに管理者ユーザー管理メニューを追加
+- [x] 年齢バリデーションを13歳以上に強化（サーバー側スキーマ・フロントエンドのインラインエラー表示）
+- [x] 完全初心者（トレーニング歴「全くなし」）選択時に強度を自動的に「低強度」に切り替えるロジックを追加
+- [x] 強度を手動で変更した場合は自動切替を無効化するintensityManuallySetフラグを追加
+- [x] 強度カードに「自動設定」バッジを表示（完全初心者かつ手動変更なしの場合）
+- [x] 年齢による推奨重量補正（getAgeFactor）を実装：40歳以上から段階的に安全側に補正
+- [x] getAgeFactorのテスト5件を追加（テスト91件全パス）
+- [x] プライバシーポリシーページ（/privacy）を作成
+- [x] DashboardLayoutのフッターにプライバシーポリシーリンクを追加
+- [x] 免責事項モーダルにプライバシーポリシーへのリンクを追加
+- [x] index.cssを近未来デザインに更新（ダークネイビー+オレンジアクセント+Orbitronフォント+六角形背景）
+- [x] DashboardLayout.tsxを近未来デザインに全面更新（サイドバー・フッター・ユーザーメニュー）
+- [x] ProfileForm.tsxのAPPバッジを鍵アイコン+「Coming Soon」に変更
+- [x] V4アイコン（握り拳モチーフ）をアップロードしfaviconに設定
+- [x] ホームページ（/）を近未来デザインに全面更新（ナビバー・ヒーロー・機能・使い方・CTA・フッター）
+- [x] V4アイコンの背景を透過処理してアップロード（icon-fist-v4-transparent_856cda0b.png）
+- [x] 旧ロゴ（m-autoplanning-logo-v3）を全使用箇所で新V4透過アイコンに差し替え（Home.tsx・ProfileForm.tsx）
+- [x] DashboardLayoutのZapアイコンを新V4透過アイコンに差し替え（ログイン画面・サイドバーヘッダー・モバイルヘッダーの3箇所）
+- [x] index.cssにfloat・pulse-glowアニメーション追加（prefers-reduced-motion対応）
+- [x] Home.tsxのヒーローアイコンにanimate-float・animate-pulse-glowを適用
+- [x] index.cssにfade-up-inスタガーアニメーション（delay-0〜700ms）とcard-hover-orange/cyanクラスを追加
+- [x] Home.tsxのヒーローテキスト5要素にanimate-fade-up+遅延クラスでスタガーフェードインを適用
+- [x] 機能カード・使い方カードにcard-hover-orange/cyanのホバーグロー強化を適用
+- [x] useScrollRevealカスタムフックを作成（IntersectionObserver、一度だけ発火、prefers-reduced-motion対応）
+- [x] index.cssにreveal/revealed/reveal-delay-1〜4クラスを追加
+- [x] Home.tsxの機能・使い方・CTAセクションにスクロールリビールを適用
+- [x] ヒーローセクションにscanlineクラスを適用
+- [x] Home.tsxのナビバーにスクロール連動エフェクト追加（scrollY>40でbg-background+オレンジシャドウ）
+- [x] MenuResult.tsxを近未来デザイン+スクロールリビールに更新（タイトル・日別カード・フッター）
+- [x] PlanResult.tsxを近未来デザイン+スクロールリビールに更新（タイトル・フェーズカード・フッター）
+- [x] バグ修正: useScrollRevealにdeps引数を追加し、データロード後に.reveal要素を再スキャンするよう修正（MenuResult/PlanResult/Homeで対応）
+- [x] コピーライトを「Shingo Morikawa」に変更（DashboardLayout・Home.tsxの2箇所）
+- [x] Privacy.tsxのメールアドレスをm.autoplanning@gmail.comに差し替え（クリック可能なmailtoリンク）
+- [x] Privacy.tsxの制定日を「2025年5月1日」に設定
+- [x] AdBannerコンポーネント作成（AdSenseプレースホルダー、審査通過後にpublisherIdを設定するだけで有効化）
+- [x] AffiliateCardコンポーネント作成（フィットネス商材リンクカード・景品表示法PR表記対応）
+- [x] ホームページにヒーロー直下バナー・フッター上バナー・モバイルスティッキーフッターを設置
+- [x] MenuResult.tsxに3日目後インフィード広告・アクションボタン前バナー・アフィリエイトカードを設置
+- [x] PlanResult.tsxにアクションボタン前バナー・アフィリエイトカードを設置
+- [x] DBスキーマ更新：usersテーブルにpassword_hash・reset_tokenーreset_token_expires列を追加
+- [x] bcryptjsインストール・独自認証ルーター実装（register/login/logout/me/resetPassword）
+- [x] AuthPage実装（ログイン・会員登録・パスワードリセットを1ページに統合、近未来デザイン）
+- [x] menu.generateをpublicProcedureに変更してゲスト利用を可能に（ログイン時のみDB保存）
+- [x] ProfileFormをゲスト対応に修正（プロフィール保存はログイン時のみ、ゲスト結果はsessionStorageに保存）
+- [x] PlanResultをゲスト対応に修正（/plan/guestでsessionStorageからプランを表示、ログイン促進バナー追加）
+- [x] DashboardLayoutをゲスト対応に修正（サイドバーフッターにログインボタン表示）
+- [x] useAuth.tsのredirectPathデフォルトを/loginに変更
+- [x] App.tsxにAuthPage(/login)ルートを追加
+- [x] バグ修正: Home.tsx・main.tsx・useAuth.ts・DashboardLayoutのgetLoginUrl（OAuthリダイレクト）を/loginへの遷移に全差し替え
+- [x] バグ修正: template.json・.project-config.jsonのcapabilitiesから"user"を除外（Manusデプロイ基盤のOAuth強制リダイレクト解除のため）
+- [x] SEO修正: Home.tsxにdocument.title（30〜60文字）とmeta description（50〜160文字）をuseEffectで設定
+- [x] SEO修正: Home.tsxのalt=""（装飾的でない）3箇所にaltテキストを追加（行235・行326・行113/123はaria-hidden）
+- [x] SEO修正: index.htmlのtitleを30〜60文字に変更し、meta descriptionタグを追加
+- [x] 管理者専用パスワード設定: auth.tsにadminSetPassword手続きを追加（管理者メールのみ許可）
+- [x] 管理者専用パスワード設定: auth.tsのloginをpasswordHash=nullかつrole=adminの場合に対応
+- [x] 管理者専用パスワード設定: /admin/setup-passwordページを作成
+- [x] 管理者専用パスワード設定: App.tsxにルートを追加
+- [x] 管理者専用パスワード設定: ログイン画面に「管理者の方はこちら」リンクを追加
+- [x] 利用規約ページ追加: /terms ページを作成（15条構成、Privacy.tsxと同デザイン）
+- [x] 利用規約ページ追加: App.tsxにルートを追加
+- [x] 利用規約ページ追加: Home.tsxのフッターに利用規約リンクを追加
+- [x] お問い合わせフォーム: DBスキーマにcontactsテーブルを追加（id, name, email, category, message, isRead, createdAt）
+- [x] お問い合わせフォーム: pnpm drizzle-kit generateでマイグレーションSQL生成・適用
+- [x] お問い合わせフォーム: server/routers/contact.tsにsubmit・list・markAsReadプロシージャを実装
+- [x] お問い合わせフォーム: /contactページを作成（名前・メール・種別・内容の入力フォーム）
+- [x] お問い合わせフォーム: /admin/contactsページを作成（管理者専用の一覧・既読管理）
+- [x] お問い合わせフォーム: App.tsxにルートを追加
+- [x] お問い合わせフォーム: Home.tsxフッターとナビに/contactリンクを追加
+- [x] sitemap.xml: サーバーに/sitemap.xml動的生成エンドポイントを追加（/・/privacy・/terms・/contactを含む）
+- [x] sitemap.xml: robots.txtにSitemap URLを記載
+- [x] SEO修正: index.htmlのmeta keywordsを9個から6個に削減（筋トレ,トレーニングメニュー,パーソナルトレーニング,自動生成,部位分割,無料）
+- [x] SEO修正: Home.tsx・DashboardLayout.tsx・ProfileForm.tsxのalt=""装飾アイコンにrole="presentation"を追加してSEOツールの誤検知を解消
+- [x] プライバシーポリシー改訂: 独自認証（メール/パスワード）への変更・Cookie条項（第7条）追加・AdSense広告配信条項（第8条）追加・Manus OAuth依存記述の削除・改定日の追記
+- [x] Aboutページ（/about）の新規作成：運営者情報・サービス概要・連絡先・リンク集
+- [x] App.tsxへ /about ルートを追加
+- [x] Home.tsxフッターとナビバーにAboutリンクを追加
+- [x] sitemap.xmlに /about を追加
+- [x] トレーニング種目画像機能: 日本語→英語マッピングテーブルの作成（shared/exerciseMap.ts）
+- [x] トレーニング種目画像機能: サーバー側エンドポイント（Wger GIF取得→AI生成フォールバック）
+- [x] トレーニング種目画像機能: PlanResult.tsxへの画像表示UI（種目名クリックでモーダル表示）
+- [x] トレーニング種目画像機能: 画像キャッシュ（DBに保存してAPI呼び出しを最小化）
+- [ ] 全種目画像一覧: exerciseMap.ts全種目のWger/AI画像を一括取得・DBキャッシュ
+- [ ] 全種目画像一覧: 管理ページ（/admin/exercises）に種目画像グリッド表示UI
+- [x] プラン名自動生成: generated_menusテーブルにplan_nameカラム追加・マイグレーション
+- [x] プラン名自動生成: プラン保存時に「〜さんの〜〜筋肥大トレーニングプラン」形式で自動生成
+- [x] プラン名編集: 履歴一覧・詳細ページにインライン編集UI（クリックで編集→Enterで保存）
+- [ ] 脂肪燃焼: 有酸素種目（バーピー・マウンテンクライマー・ジャンピングジャック等）を種目プールに追加
+- [x] 筋力向上: BIG3（スクワット・デッドリフト・ベンチプレス）優先選択ロジックを追加
+- [x] 筋力向上: 1RM入力欄をProfileFormに追加し、重量自動計算（%1RM）をtraining-engine.tsに実装
+- [x] 持久力向上: サーキットトレーニング形式（複数種目を連続で行う構造）を導入
+- [ ] 持久力向上: 有酸素種目（ジャンプ系・ケトルベル等）を種目プールに追加
+- [ ] 健康維持: ストレッチ・モビリティ種目を種目プールに追加
+- [x] 健康維持: 週ごとの種目バリエーション（同部位で毎週異なる種目を選択）を導入
+- [ ] 健康維持: 年齢・BMIに応じた強度自動調整を強化
+- [x] 目標別UI最適化：fat_loss/endurance/health時は部位選択カードを非表示
+- [x] 目標別UI最適化：endurance時は強度選択カードも非表示（サーキット固定）
+- [x] 目標別説明バナーをProfileFormに追加（全身法目標時の説明）
+- [x] training-engine.ts: fat_loss/endurance/healthは全身法強制（targetMuscles無視）
+- [x] training-engine.ts: fat_loss/endurance/health時に「全身」種目（有酸素系）を優先選択
+- [x] training-engine.ts: fat_loss時はHIITフラグを付与し休憩時間を短縮（60秒以内）
+- [x] PlanResult.tsx: isHIITバッジと説明文を追加（赤色バッジ）
+- [x] routers.ts: fat_loss/endurance/health時にtargetMusclesをサーバー側でクリア
+- [x] バグ修正: DB種目使用時にfat_loss/endurance/healthでも有酸素・全身種目が選ばれるよう修正（generateWeeklyMenuでEXERCISE_DBの有酸素種目を必ずマージ）
+- [x] バグ修正: 自重種目（bodyweightのみ）は設備設定に関わらず常に使用可能に変更
+- [x] テスト追加: DB種目マージテスト5件（fat_loss/endurance/healthで有酸素種目・isHIIT・isCircuitを検証）
+- [x] 根本修正: fat_loss/endurance/healthの種目選択を部位ループから完全に切り離し、目標別専用プールから直接選択するよう再設計
+- [x] fat_loss専用種目プール追加: バーピー・ジャンプスクワット・ダンベルスラスター等17種目（全て全身種目）
+- [x] endurance専用種目プール追加: ジョギングその場足踏み・ウォーキングランジ・ローイングマシン等15種目（全て全身種目）
+- [x] health専用種目プール追加: ワールドグレイテストストレッチ・キャットカウ・ピジョンポーズ等20種目（全て全身種目）
+
+## 新機能実装（2026-06-14）
+
+- [x] DBスキーマ: workout_logs テーブル追加（種目ごとの実績重量・レップ数・完了フラグ）
+- [x] DBスキーマ: マイグレーションSQL生成・適用
+- [x] server/routers.ts: workoutLog.upsert プロシージャ追加（記録・更新）
+- [x] server/routers.ts: workoutLog.getByMenu プロシージャ追加（メニューIDで記録取得）
+- [x] server/routers.ts: menu.shuffleExercise プロシージャ追加（特定種目を同部位の別種目に差し替え）
+- [x] server/routers.ts: menu.excludeExercise プロシージャ追加（種目を除外して再生成）
+- [x] training-engine.ts: excludedExercises パラメータを受け取って種目選択から除外するロジック追加
+- [x] PlanResult.tsx: 各種目に「記録する」ボタンと実績入力UI（重量・レップ数・完了チェック）を追加
+- [x] PlanResult.tsx: 各種目に「別の種目に変える」ボタンを追加（シャッフル）
+- [x] PlanResult.tsx: 各種目に「この種目を除外」ボタンを追加
+- [ ] History.tsx: ワークアウト記録の進捗サマリー表示（完了率・総ボリューム）
+- [x] DB: workout_logsテーブル追加（userId/menuId/phaseIndex/dayIndex/exerciseName/setIndex/実績値）
+- [x] server/db.ts: getWorkoutLogs / upsertWorkoutLogヘルパー追加
+- [x] server/routers.ts: workoutLog.getByMenu / workoutLog.upsertプロシージャ追加
+- [x] server/routers.ts: menu.shuffleExerciseプロシージャ追加（種目ランダム入れ替え）
+- [x] server/routers.ts: menu.excludeExerciseプロシージャ追加（種目除外して再生成）
+- [x] training-engine.ts: generateWeeklyMenu/selectExercisesにexcludedExercisesパラメータ追加
+- [x] PlanResult.tsx: WorkoutLogRowコンポーネント（セット別完了チェック・実績入力）追加
+- [x] PlanResult.tsx: 種目別シャッフルボタン（↺）・除外ボタン（×）追加（ログインユーザーの保存済みプランのみ）
+
+## 画面分離：プラン表示 vs ワークアウト記録（2026-06-14）
+
+- [x] WorkoutTracker.tsx新規作成（/workout/:menuId）：種目一覧＋セット別記録UI＋シャッフル/除外ボタン
+- [x] PlanResult.tsxからワークアウト記録UI（WorkoutLogRow・シャッフル/除外ボタン）を削除
+- [x] PlanResult.tsxに「記録はこちら」案内バナーを追加（ログインユーザーの保存済みプランのみ）
+- [x] App.tsxに /workout/:menuId ルートを追加
+- [x] DashboardLayoutのサイドバーに「ワークアウト記録」ナビリンクを追加（履歴ページから遷移する設計に変更）
+
+## Claude Code FIXES適用（2026-06-14）
+
+- [x] server/db.ts: FIXESの内容を適用（adminProcedure統一・性能改善）
+- [x] server/db.ts: getWorkoutLogs/upsertWorkoutLogをdb_workout_fix.tsの内容で置き換え（SQL絞り込み改善）
+- [x] server/routers.ts: FIXESの内容を適用（adminProcedure統一）
+- [x] server/routers.ts: workoutLogセクションをrouters_workout_fix.tsの内容で置き換え（Zod NaN二重防衛）
+- [x] server/routers.ts: shuffleExercise/excludeExerciseプロシージャを復元（FIXESに欠落していたため）
+- [x] server/_core/llm.ts: FIXESの内容を適用（エラーメッセージ・budget_tokens修正）
+- [x] client/src/_core/hooks/useAuth.ts: FIXESの内容を適用（localStorage.setItem削除）
+- [x] client/src/components/DashboardLayout.tsx: FIXESの内容を適用（/admin/*管理者ガード）
+- [x] client/src/pages/PlanResult.tsx: FIXESの内容を適用（setLocation・近日公開ボタン）
+
+## バグ修正（2026-06-14）
+
+- [x] WorkoutTracker.tsx: plannedWeightNum計算でisNaNチェックを追加（「自重」等の文字列でNaNが渡りZodバリデーションエラーが発生するバグを修正）
+- [x] PlanResult.tsx: 同様のplannedWeightNum NaNバグを修正
+
+## Claude Code指摘修正（2026-06-14）
+
+- [x] server/db.ts: updatePlanNameにuserId所有権チェックを追加（セキュリティ）
+- [x] server/db.ts: getUserCountをCOUNT(*)クエリに変更（パフォーマンス）
+- [x] server/db.ts: bulkUpsertExerciseWeightsを50件ずつ一括INSERTに変更（パフォーマンス）
+- [x] server/db.ts: importにand, count, sqlを追加
+- [x] server/routers.ts: admin.*プロシージャをadminProcedureに統一（セキュリティ）
+- [x] client/src/_core/hooks/useAuth.ts: localStorage.setItem("manus-runtime-user-info")を削除（セキュリティ）
+- [x] client/src/components/DashboardLayout.tsx: /admin/*へのアクセスに認証・管理者ガードを追加（セキュリティ）
+- [x] server/_core/llm.ts: エラーメッセージをBUILT_IN_FORGE_API_KEYに修正・budget_tokensを2048に変更
+- [x] client/src/pages/PlanResult.tsx: ゲスト向けログインボタンをsetLocation("/login")に変更
+- [x] client/src/pages/PlanResult.tsx: モバイルアプリCTAボタンをdisabled＋「近日公開」に変更
+
+## 種目入れ替えUI改善（2026-06-14）
+
+- [ ] server/routers.ts: menu.getCandidateExercises プロシージャを追加（同部位の候補種目3〜5件を返す）
+- [ ] client/src/pages/WorkoutTracker.tsx: 入れ替えボタンをモーダル選択方式に変更（候補リストから選択）
+- [ ] client/src/pages/PlanResult.tsx: 同様に入れ替えボタンをモーダル選択方式に変更
+
+## 種目入れ替えUI改善（2026-06-14）
+
+- [x] server/training-engine.ts: filterExercises/buildExercise/ExerciseTemplateをexportに変更
+- [x] server/routers.ts: menu.getCandidateExercisesプロシージャを追加（同部位最大5件の候補返却）
+- [x] server/routers.ts: shuffleExerciseにtargetExerciseNameを追加し選択した種目に差し替える処理に変更
+- [x] client/src/pages/WorkoutTracker.tsx: ShuffleModalコンポーネントを追加（候補リストから選択するモーダル）
+- [x] client/src/pages/WorkoutTracker.tsx: 入れ替えボタンをモーダルを開く形式に変更
+
+## シェアボタン実装（2026-06-15）
+
+- [x] PlanResult.tsx: ShareSectionコンポーネントを追加（Twitter/LINE/URLコピー/Web Share API）
+- [x] PlanResult.tsx: シェアURLをゲスト/ログイン済みで切り替え（window.location.origin使用）
+- [x] PlanResult.tsx: モバイルではWeb Share API優先表示
