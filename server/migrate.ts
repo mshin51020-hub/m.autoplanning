@@ -3,6 +3,7 @@ import { drizzle } from "drizzle-orm/mysql2";
 import { migrate } from "drizzle-orm/mysql2/migrator";
 import { eq } from "drizzle-orm";
 import mysql from "mysql2/promise";
+import { nanoid } from "nanoid";
 import { users } from "../drizzle/schema";
 
 const ADMIN_EMAIL = "mshin5.1020@gmail.com";
@@ -21,7 +22,12 @@ async function runMigrations() {
 
   const existing = await db.select().from(users).where(eq(users.email, ADMIN_EMAIL)).limit(1);
   if (existing.length === 0) {
-    await db.insert(users).values({ email: ADMIN_EMAIL, role: "admin" });
+    await db.insert(users).values({
+      openId: nanoid(),
+      email: ADMIN_EMAIL,
+      name: "Admin",
+      role: "admin",
+    });
     console.log("[migrate] Admin user created:", ADMIN_EMAIL);
   }
 
