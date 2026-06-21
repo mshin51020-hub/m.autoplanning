@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "NODE_ENV=development tsx watch server/_core/index.ts",
-    "build": "vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/server.js && esbuild server/migrate.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/migrate.js",
+    "build": "vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --alias:vite=./server/shims/vite.ts --alias:@tailwindcss/vite=./server/shims/tailwindcss-vite.ts --alias:@vitejs/plugin-react=./server/shims/react-plugin.ts --outfile=dist/server.js && esbuild server/migrate.ts --platform=node --packages=external --bundle --format=esm --outfile=dist/migrate.js",
     "start": "node dist/migrate.js; NODE_ENV=production node dist/server.js",
     "check": "tsc --noEmit",
     "format": "prettier --write .",
