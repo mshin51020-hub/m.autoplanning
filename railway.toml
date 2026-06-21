@@ -1,9 +1,7 @@
 [build]
-builder = "nixpacks"
-buildCommand = "npm install -g pnpm && pnpm install && pnpm build"
+builder = "DOCKERFILE"
 
 [deploy]
-startCommand = "pnpm start"
 healthcheckPath = "/api/trpc/system.health?input=%7B%22json%22%3A%7B%22timestamp%22%3A0%7D%7D"
 healthcheckTimeout = 60
 restartPolicyType = "on_failure"
