@@ -12,4 +12,4 @@ RUN pnpm build
 
 EXPOSE 3000
 
-CMD ["sh", "-c", "node dist/migrate.js && NODE_ENV=production node dist/server.js"]
+CMD ["sh", "-c", "node dist/migrate.js; NODE_ENV=production node dist/server.js"]
