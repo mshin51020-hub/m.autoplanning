@@ -117,3 +117,6 @@ client/public/__manus__/version.json
 
 # Manus project config (contains secrets — never commit)
 .project-config.json
+
+# pnpm local config (use .npmrc in repo root instead)
+# (no local npmrc exclusion needed)

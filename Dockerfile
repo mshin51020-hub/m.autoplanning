@@ -5,7 +5,7 @@ WORKDIR /app
 RUN npm install -g pnpm@10.4.1
 
 COPY package.json ./
-RUN pnpm install
+RUN pnpm install --no-frozen-lockfile
 
 COPY . .
 RUN pnpm build
